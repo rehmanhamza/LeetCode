@@ -48,18 +48,21 @@ void print_image(int** ptr){
 }
 
 int main(){
-    int image[N][N] = {{1,1,1},{1,1,0},{1,0,1}};
+    int ** image;
+    image = (int **)malloc(N*sizeof(int*));
+    for(int i=0; i<N;i++){
+        image[i] = (int*)malloc(N*sizeof(int));
+    }
+    int image1[N][N] = {{1,1,1},{1,1,0},{1,0,1}};
     int sr = 1;
     int sc = 1;
     int newColor = 2;
 
-    /*
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
-            printf("%d ", image[i][j]);
+            image[i][j] = image1[i][j];
         }
-        printf("\n");
-    }*/
+    }
 
     int** ptr = floodFill(image, sr, sc, newColor);
     print_image(ptr);
