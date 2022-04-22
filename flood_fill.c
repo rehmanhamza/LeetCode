@@ -4,7 +4,7 @@
 #define N 3
 
 
-void dfs(int** image, int sr, int sc, int newColor, int rows, int cols, int source){
+void dfs(int **image, int sr, int sc, int newColor, int rows, int cols, int source){
     if(sr<0 || sr>=rows || sc<0 || sc>=cols){
          return;
     }else if(image[sr][sc] != source){
@@ -19,7 +19,7 @@ void dfs(int** image, int sr, int sc, int newColor, int rows, int cols, int sour
     dfs(image, sr, sc+1, newColor, rows, cols, source);
 }
 
-int** floodFill(int** image, int sr, int sc, int newColor) {
+int** floodFill(int **image, int sr, int sc, int newColor) {
     if(newColor == image[sr][sc]){
         return image;
     }
@@ -33,12 +33,12 @@ int** floodFill(int** image, int sr, int sc, int newColor) {
     return image;
 }
 
-void destroyArray(int** ptr){
+void destroyArray(int **ptr){
     free(*ptr);
     free(ptr);
 }
 
-void print_image(int** ptr){
+void print_image(int **ptr){
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
             printf("%d ", ptr[i][j]);
@@ -48,10 +48,10 @@ void print_image(int** ptr){
 }
 
 int main(){
-    int ** image;
+    int **image;
     image = (int **)malloc(N*sizeof(int*));
     for(int i=0; i<N;i++){
-        image[i] = (int*)malloc(N*sizeof(int));
+        image[i] = (int *)malloc(N*sizeof(int));
     }
     int image1[N][N] = {{1,1,1},{1,1,0},{1,0,1}};
     int sr = 1;
@@ -64,7 +64,7 @@ int main(){
         }
     }
 
-    int** ptr = floodFill(image, sr, sc, newColor);
+    int **ptr = floodFill(image, sr, sc, newColor);
     print_image(ptr);
     destroyArray(ptr);
 

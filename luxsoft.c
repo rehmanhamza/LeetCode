@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 
-// 100% working
 void check_brackets(char *str){
     int l = strlen(str);
     int count = 0;
@@ -27,6 +26,7 @@ void check_brackets(char *str){
     }
 
 }
+
 int main(){
     char *str = "()())";
     check_brackets(str);
